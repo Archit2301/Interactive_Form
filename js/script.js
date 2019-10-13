@@ -5,7 +5,7 @@ TechDegree Project 3 - Interactive Form
 //Variable declarations
 const checkboxes = $('.activities input');
 let totalCost = 0;
-const totalCostElement = $('<span><strong></strong></span>').html('<strong>Total: $' + totalCost + '</strong>');
+const totalCostElement = $('<span></span>').html('<strong>Total: $' + totalCost + '</strong>');
 //Error messages defined
 const nameErrorMessage = '<span class="alert">Name field cant be left blank</span>';
 const emailErrorMessage = '<span class="alert">Please enter the correct email address<span>';
