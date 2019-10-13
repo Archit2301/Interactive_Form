@@ -1,5 +1,5 @@
 /***************************************
-TechDegree Project 2 - Interactive Form
+TechDegree Project 3 - Interactive Form
 ***************************************/
 
 //Variable declarations
