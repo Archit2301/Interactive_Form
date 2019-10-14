@@ -33,15 +33,11 @@ $('#title').change(function() {
 //No color option appears until a color theme is selected.
 $('#color').hide();
 $('#colors-js-puns').append('<label id="select-theme">Please select a T-shirt theme</label>');
+$('#design option:first').attr('hidden', true);
 
 //Event delegation function to change T-shirt colors according to the theme selected.
 $('#design').change(function() {
-  if ( $('#design option:selected').text() === 'Select Theme') {
-      $('#select-theme').remove();
-      $('#color').hide();
-      $('#colors-js-puns').append('<label id="select-theme">Please select a T-shirt theme</label>');
-  } else if ( $('#design option:selected').text() === 'Theme - JS Puns') {
-      $('#select-theme').remove();
+  if ( $('#design option:selected').text() === 'Theme - JS Puns') {
       $('#color').show();
       $('#color option[value=tomato]').hide().removeAttr('selected'); //Remove the previous option for the new one to appear upon selection.
       $('#color option[value=steelblue]').hide();
@@ -50,7 +46,6 @@ $('#design').change(function() {
       $('#color option[value=darkslategrey]').show();
       $('#color option[value=gold]').show();
   } else {
-      $('#select-theme').remove();
       $('#color').show();
       $('#color option[value=cornflowerblue]').hide().removeAttr('selected');
       $('#color option[value=darkslategrey]').hide();
@@ -94,7 +89,7 @@ $('.activities').change(function(e) {
 });
 
 //Prevents the user from selecting the "Select payment method".
-$('#payment option[value="select method"]').attr('disabled', 'disabled');
+$('#payment option[value="select method"]').attr('hidden', true);
 
 //Credit Card option is selected by default.
 $('#payment option[value="Credit Card"]').attr('selected', 'selected');
@@ -183,41 +178,47 @@ function showErrorAfter(element, message) {
 
 $('form').on('submit', function(event) {
 
-  event.preventDefault(); //prevents the default behaviour of the browser.
+   //prevents the default behaviour of the browser.
   $('.alert').remove(); //remove the alert class if there is no error.
-  
+
   if ( isValidName() === false ) {
     showErrorBefore('#name', nameErrorMessage);
+    event.preventDefault();
   } else {
     $('#name').css('border-color', '');
   }
 
   if ( isValidEmail() === false ) {
     showErrorBefore('#mail', emailErrorMessage);
+    event.preventDefault();
   } else {
     $('#mail').css('border-color', '');
   }
 
   if ( isCheckboxSelected() === false ) {
     showErrorAfter('.activities', checkboxSelectionError);
+    event.preventDefault();
   }
 
   if ( $('#payment option:selected').text() === 'Credit Card') {
 
     if ( ccNumberValidator() === false ) {
       showErrorAfter('#cc-num', ccNumberError);
+      event.preventDefault();
     } else {
       $('#cc-num').css('border-color', '');
     }
 
     if ( isValidZipCode() === false ) {
       showErrorAfter('#zip', zipCodeError);
+      event.preventDefault();
     } else {
       $('#zip').css('border-color', '');
     }
 
     if ( isValidCVV() === false ) {
       showErrorAfter('#cvv', cvvNumberError);
+      event.preventDefault();
     } else {
       $('#cvv').css('border-color', '');
     }
