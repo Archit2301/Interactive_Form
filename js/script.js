@@ -1,7 +1,3 @@
-/***************************************
-TechDegree Project 3 - Interactive Form
-***************************************/
-
 //Variable declarations
 const checkboxes = $('.activities input');
 let totalCost = 0;
