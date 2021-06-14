@@ -1,5 +1,4 @@
 # Interactive_Form
- My third Techdegree project
 ***********************************************************************
 
 --Description
@@ -17,4 +16,3 @@ Event delegation using jQuery is used to interact with the form elements.
 
 
 ***********************************************************************
-///////////////////////////////////////////////////////////////////////
